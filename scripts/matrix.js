@@ -35,6 +35,27 @@ class Matrix {
         // ensure multiplication is valid
         if (rhs instanceof Matrix && this.columns === rhs.rows) {
             // implement matrix multiplication here!
+			
+			var m = new Array(this.rows);
+			for(var i = 0; i<this.rows; i++){
+				m[i] = new Array(rhs.columns);
+			}
+
+			for(var i = 0; i< rhs.columns; i++){
+				for(var k = 0; k<this.rows; k++){
+					var value = 0;
+					for(var j = 0; j< rhs.rows; j++){
+						value=value+this.data[k][j]*rhs.data[j][i];
+						
+					}
+					m[k][i] = value;
+					console.log(m[k][i]);
+				}
+			}
+			var new_M = new Matrix(this.rows,rhs.columns);
+			console.log(m);
+			new_M.data = m;
+			result = new_M;
         }
         else {
             console.log("could not multiply - row/column mismatch");
