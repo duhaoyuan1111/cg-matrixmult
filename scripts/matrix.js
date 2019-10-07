@@ -53,7 +53,6 @@ class Matrix {
 				}
 			}
 			var new_M = new Matrix(this.rows,rhs.columns);
-			console.log(m);
 			new_M.data = m;
 			result = new_M;
         }
